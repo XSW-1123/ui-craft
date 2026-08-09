@@ -1,0 +1,93 @@
+# DESIGN.md
+
+The design contract for this project. Written once, read at the start of every session that
+touches the UI. It exists so the direction survives context loss, and so "make it more X" is a
+parameter change instead of a rewrite.
+
+Keep it under ~150 lines. A design doc nobody reads is worse than none.
+
+---
+
+## Direction
+
+```
+Job:        <what this product's UI must make possible, one sentence>
+Mode:       <Persuade | Operate | Read | Experience>  (mixed: list per surface)
+Audience:   <who, on what device, in what state of attention>
+Emotion:    <adj>, <adj>, <adj>
+Anchor:     <concrete visual reference> — <why it fits>
+Signature:  <the one move this UI is recognized by>
+Rejected:   <the default direction deliberately not taken, and why>
+Knobs:      VARIANCE <1-5> · MOTION <0-3> · DENSITY <1-5>
+```
+
+## Tokens
+
+Source of truth: `<path/to/tokens.css>`. Never hardcode a value that belongs here.
+
+| Role | Light | Dark | Notes |
+|---|---|---|---|
+| `--bg` | | | 60% of the surface |
+| `--surface` | | | 30% — cards, panels |
+| `--text` | | | >= 4.5:1 on bg |
+| `--text-muted` | | | >= 4.5:1 on bg |
+| `--border` | | | >= 3:1 when structural |
+| `--accent` | | | 10% — used 2-4x per viewport |
+| `--accent-fg` | | | >= 4.5:1 on accent |
+
+Type: `<display family>` + `<text family>`, scale ratio `<n>`, base 16px.
+Space: 4px base — 4 / 8 / 12 / 16 / 24 / 32 / 48 / 64 / 96.
+Radius: `<sm>` / `<md>` / `<full>`. Shadows: 3 levels. Durations: 120 / 200 / 320ms.
+
+## Locked decisions
+
+Things that must not drift. Each with the reason, so a future session can tell whether the reason
+still holds.
+
+- <decision> — <reason>
+- <decision> — <reason>
+
+## Component conventions
+
+- Buttons: one primary per view. Sizes: `<sm/md/lg heights>`.
+- Cards: `<padding>`, `<radius>`, elevation `<level>`, border `<yes/no>`.
+- Forms: labels above inputs, errors below, `<validation timing>`.
+- Tables: row height `<n>px`, tabular figures, numbers right-aligned, sticky header.
+- Empty states: illustration `<yes/no>` + one-line explanation + primary action.
+- Icons: `<set>`, `<size>`, stroke `<width>`.
+
+## Motion policy
+
+- Budget: `MOTION <n>`.
+- Frequent transitions <= `<n>`ms. Occasional <= `<n>`ms.
+- Easing: entrances `--ease-out`, exits `--ease-in`.
+- Reduced motion: `<what is removed, what is preserved>`.
+
+## Content rules
+
+- Voice: `<3 adjectives>`. Example of on-voice copy: "<sentence>".
+- Never say: `<banned phrases>`.
+- Numbers: `<format, precision, locale>`.
+- Dates: `<format>`.
+- Empty/error copy pattern: `<what happened> + <why> + <what to do>`.
+
+## Constraints
+
+- Stack: `<framework, styling system, component library>`
+- Browser/device floor: `<targets>`
+- Perf budget: LCP `<n>`s, JS `<n>`KB gz
+- i18n: `<languages, RTL yes/no, longest-string test case>`
+- Brand locks: `<colors, logo rules, anything legally fixed>`
+
+## Do not
+
+- <thing that has been tried and rejected> — <why>
+- <thing that breaks something non-obvious> — <why>
+
+## Open questions
+
+- <unresolved decision> — blocking `<what>`
+
+---
+
+_Last updated: <date> · Update this file whenever a locked decision changes._
