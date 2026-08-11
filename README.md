@@ -1,6 +1,6 @@
 # ui-craft
 
-A [WorkBuddy / CodeBuddy](https://www.codebuddy.cn) **skill** for building, refining, and
+A **skill** for building, refining, and
 auditing web interfaces **without the default "AI look."**
 
 It locks a visual direction, enforces a quantified quality floor (WCAG contrast, focus, motion,
@@ -31,11 +31,9 @@ the accessibility floor is already clean.**
 
 ## Install
 
-### Into WorkBuddy / CodeBuddy
-
 1. Copy this folder into your user skills directory:
-   - **macOS / Linux:** `~/.workbuddy/skills/ui-craft/`
-   - **Windows:** `%USERPROFILE%\.workbuddy\skills\ui-craft\`
+   - **macOS / Linux:** `~/skills/ui-craft/`
+   - **Windows:** `%USERPROFILE%\skills\ui-craft\`
 2. Or import `ui-craft.zip` from the skill manager.
 
 The skill then triggers automatically on UI requests, or call it explicitly with
@@ -109,8 +107,8 @@ pages** (saaslandingpage.com) and **60+ Persuade/Experience cases** (reeoo.com).
 三等宽卡片、虚构数据、四大默认聚类（含 AI Startup SaaS）、均匀间距等"生成腔"加权求和成一个数，≥10 就判定为"生成味"，
 评分会被压低、评语被覆盖，`--strict` 模式下直接让 CI 失败。
 
-- **安装**：把整个 `ui-craft/` 文件夹复制到 `~/.workbuddy/skills/ui-craft/`（Windows 为
-  `%USERPROFILE%\.workbuddy\skills\ui-craft\`），或在技能管理器里导入 `ui-craft.zip`。
+- **安装**：把整个 `ui-craft/` 文件夹复制到 `~/skills/ui-craft/`（Windows 为
+  `%USERPROFILE%\skills\ui-craft\`），或在技能管理器里导入 `ui-craft.zip`。
 - **使用**：对话里 `@skill:ui-craft`，或直接说"美化界面 / 审查 UI / 有 AI 味"等；也可以单独跑
   `scripts/audit.mjs` 与 `scripts/score.mjs`。
 - **协议**：MIT。
